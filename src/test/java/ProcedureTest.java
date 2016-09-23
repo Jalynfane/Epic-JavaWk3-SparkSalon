@@ -24,6 +24,28 @@ public class ProcedureTest {
   }
 
   @Test
+  public void getDescription_returnsCorrectDescription_String() {
+    assertEquals("hair cut & color", procedure.getDescription());
+  }
+
+  @Test
+  public void setDescription_updatesDescription_String() {
+    procedure.setDescription("men's haircut");
+    assertEquals("men's haircut", Procedure.find(procedure.getId()).getDescription());
+  }
+
+  @Test
+  public void getPrice_returnsCorrectPrice_Float() {
+    assertEquals(25.0f, procedure.getPrice(), 0.005);
+  }
+
+  @Test
+  public void setPrice_updatesPrice_Float() {
+    procedure.setPrice(25.0f);
+    assertEquals(25.0, Procedure.find(procedure.getId()).getPrice(), 0.005);
+  }
+
+  @Test
   public void find_returnCorrectProcedure_true() {
     assertTrue(Procedure.find(procedure.getId()).getDescription().equals(procedure.getDescription()));
   }

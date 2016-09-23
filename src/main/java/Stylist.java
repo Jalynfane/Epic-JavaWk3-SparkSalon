@@ -24,6 +24,17 @@ public class Stylist {
     return name;
   }
 
+  public void setName(String name) {
+    this.name=name;
+    try(Connection cn = DB.sql2o.open()) {
+      String sql = "UPDATE stylists SET name = :name WHERE id = :id";
+      cn.createQuery(sql)
+        .addParameter("name", name)
+        .addParameter("id", id)
+        .executeUpdate();
+    }
+  }
+
   public static Stylist find(int id) {
     try(Connection cn = DB.sql2o.open()) {
       String sql = "SELECT * FROM stylists WHERE id=:id";

@@ -28,8 +28,30 @@ public class Procedure {
     return description;
   }
 
+  public void setDescription(String description) {
+    this.description=description;
+    try(Connection cn = DB.sql2o.open()) {
+      String sql = "UPDATE procedures SET description = :description WHERE id = :id";
+      cn.createQuery(sql)
+        .addParameter("description", description)
+        .addParameter("id", id)
+        .executeUpdate();
+    }
+  }
+
   public float getPrice() {
     return price;
+  }
+
+  public void setPrice(float price) {
+    this.price=price;
+    try(Connection cn = DB.sql2o.open()) {
+      String sql = "UPDATE procedures SET price = :price WHERE id = :id";
+      cn.createQuery(sql)
+        .addParameter("price", price)
+        .addParameter("id", id)
+        .executeUpdate();
+    }
   }
 
   public static Procedure find(int id) {

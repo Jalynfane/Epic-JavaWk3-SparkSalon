@@ -24,6 +24,17 @@ public class StylistTest {
   }
 
   @Test
+  public void getName_returnsCorrectName_String() {
+    assertEquals("Cheryl", stylist.getName());
+  }
+
+  @Test
+  public void setName_updatesName_String() {
+    stylist.setName("Steve");
+    assertEquals("Steve", Stylist.find(stylist.getId()).getName());
+  }
+
+  @Test
   public void find_returnCorrectStylist_true() {
     assertTrue(Stylist.find(stylist.getId()).getName().equals(stylist.getName()));
   }
