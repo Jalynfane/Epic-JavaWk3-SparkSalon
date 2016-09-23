@@ -64,7 +64,7 @@ public class App {
       Map<String, Object> model = new HashMap<String, Object>();
       int id = Integer.parseInt(request.params(":id"));
       Client.delete(id);
-      response.redirect("/clients/" + id);
+      response.redirect("/clients");
       model.put("template", "templates/client.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
@@ -105,6 +105,32 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
+    get("/stylists/:id", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      int id = Integer.parseInt(request.params(":id"));
+      model.put("stylist", Stylist.find(id));
+      model.put("template", "templates/edit-stylist.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+    post("/stylists/:id", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      int id = Integer.parseInt(request.params(":id"));
+      Stylist.find(id).setName(request.queryParams("first"));
+      model.put("stylists", Stylist.all());
+      model.put("template", "templates/stylist.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+    get("/delete/stylists/:id", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      int id = Integer.parseInt(request.params(":id"));
+      Stylist.delete(id);
+      response.redirect("/stylists");
+      model.put("template", "templates/stylist.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
     post("/stylists", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       Stylist stylist = new Stylist(request.queryParams("stylist"));
@@ -117,6 +143,33 @@ public class App {
     get("/procedures", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       model.put("procedures", Procedure.all());
+      model.put("template", "templates/procedure.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+    get("/procedures/:id", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      int id = Integer.parseInt(request.params(":id"));
+      model.put("procedure", Procedure.find(id));
+      model.put("template", "templates/edit-procedure.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+    post("/procedures/:id", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      int id = Integer.parseInt(request.params(":id"));
+      Procedure.find(id).setDescription(request.queryParams("first"));
+      Procedure.find(id).setPrice(Float.parseFloat(request.queryParams("age")));
+      model.put("procedures", Procedure.all());
+      model.put("template", "templates/procedure.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+    get("/delete/procedures/:id", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      int id = Integer.parseInt(request.params(":id"));
+      Procedure.delete(id);
+      response.redirect("/procedures");
       model.put("template", "templates/procedure.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());

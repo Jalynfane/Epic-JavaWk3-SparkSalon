@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-sm-6">
+  <div class="col-sm-8">
     <h2>Update Client</h2>
     <form action='/clients/$client.getId()' method="post">
     <div class="row">
@@ -47,12 +47,13 @@
       <button type='submit' class='btn'>Update Client!</button>
     </form>
   </div>
-  <div class="col-sm-6">
+  <div class="col-sm-4">
     <h2>$client.getFirstName() $client.getLastName() ($client.getAge())</h2>
     <h3>$client.getPhoneNumber()</h3>
     <h3>$client.getAddress(), $client.getCity()</h3>
     <h3>$client.getState() $client.getZip()</h3>
     <h3>$client.getEmail()</h3>
     <h3>$client.getNotes()</h3>
+    <p><a href="/delete/clients/$client.getId()">delete client</a></p>
   </div>
 </div>

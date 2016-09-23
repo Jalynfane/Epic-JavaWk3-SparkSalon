@@ -1,24 +1,16 @@
 <div class="row">
   <div class="col-xs-8">
-    <h2>Our Stylists</h2>
-    #foreach($stylist in $stylists)
-      <div>
-        <h3><a href="/stylists/$stylist.getId()">$stylist.getName()</a></h3>
-      </div>
-    #end
-  </div>
-  <div class="col-xs-4">
-    #if($stylist)
-    <h2>Stylist Added</h2>
-    <p>$stylist</p>
-    #end
-    <h2>Add Stylist</h2>
-    <form action='/stylists' method="post">
+    <h2>Update Stylist</h2>
+    <form action='/stylists/$stylist.getId()' method="post">
       <div class="form-group">
         <label for="stylist">Stylist: </label>
-        <input id="stylist" name="stylist" class="form-control" type="text">
+        <input id="stylist" name="stylist" class="form-control" type="text" value="$stylist.getName()">
       </div>
-      <button type='submit' class='btn'>Add Stylist!</button>
+      <button type='submit' class='btn'>Update Stylist!</button>
     </form>
+  </div>
+  <div class="col-sm-4">
+    <h2>$stylist.getName()</h2>
+    <p><a href="/delete/stylists/$stylist.getId()">delete stylist</a></p>
   </div>
 </div>
