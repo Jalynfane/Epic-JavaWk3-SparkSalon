@@ -1,21 +1,49 @@
+<div class="row">
+  <div class="col-xs-8">
 
-#if($client)
-<h2>$client</h2>
-#end
-
-<h2>Make Appointment</h2>
-<form action='/' method="post">
-  <div class="form-group">
-    <label for="client">Client: </label>
-    <input id="client" name="client" class="form-control" type="text">
   </div>
-  <div class="form-group">
-    <label for="procedure">Procedure: </label>
-    <input id="procedure" name="procedure" class="form-control" type="text">
+  <div class="col-xs-4">
+    #if($client)
+    <h2>$client Added</h2>
+    #end
+    <h2>Add Appointment</h2>
+    <form action='/' method="post">
+      <div class="form-group">
+        <label for="client">Client: </label>
+        <input id="client" name="client" class="form-control" type="text">
+      </div>
+      <div class="form-group">
+        <label for="procedure">Procedure: </label>
+        <input id="procedure" name="procedure" class="form-control" type="text">
+      </div>
+      <div class="form-group">
+        <label for="day">Date: </label>
+        <input id="day" name="day" type="date">
+      </div>
+      <div class="form-group">
+        <label for="item1">Time: </label>
+        <select id="hour" name="hour">
+          <option>8</option>
+          <option>9</option>
+          <option>10</option>
+          <option>11</option>
+          <option>12</option>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+          <option>6</option>
+          <option>7</option>
+        </select>
+        <select id="minutes" name="minutes">
+          <option>00</option>
+          <option>15</option>
+          <option>30</option>
+          <option>45</option>
+        </select>
+      </div>
+      <button type='submit' class='btn'>Book it!</button>
+    </form>
   </div>
-  <div class="form-group">
-    <label for="item1">Date/Time: </label>
-    <input id="time" name="time" class="form-control" type="text">
-  </div>
-  <button type='submit' class='btn'>Book it!</button>
-</form>
+</div>

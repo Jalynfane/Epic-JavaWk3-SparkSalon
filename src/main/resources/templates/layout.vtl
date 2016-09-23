@@ -7,15 +7,21 @@
   </head>
   <body>
     <div class="container">
-      <h1>Spark Salon</h1>
+      <div class="row">
+        <div class="col-sm-3">
+          <h1>Spark Salon</h1>
 
-      <ul>
-        <li><a href="/">Appointments</a></li>
-        <li><a href="/clients">Clients</a></li>
-        <li><a href="/stylists">Stylists</a></li>
-        <li><a href="/procedures">Procedures</a></li>
-      </ul>
-      #parse( $template )
+          <ul>
+            <li><a href="/">Appointments</a></li>
+            <li><a href="/clients">Clients</a></li>
+            <li><a href="/stylists">Stylists</a></li>
+            <li><a href="/procedures">Procedures</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-9">
+          #parse( $template )
+        </div>
+      </div>
     </div>
   </body>
 </html>

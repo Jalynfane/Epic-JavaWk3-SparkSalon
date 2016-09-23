@@ -1,13 +1,18 @@
+<div class="row">
+  <div class="col-xs-8">
 
-#if($stylist)
-<h2>$stylist Added</h2>
-#end
-
-<h2>Add Stylist</h2>
-<form action='/stylists' method="post">
-  <div class="form-group">
-    <label for="stylist">Stylist: </label>
-    <input id="stylist" name="stylist" class="form-control" type="text">
   </div>
-  <button type='submit' class='btn'>Add Stylist!</button>
-</form>
+  <div class="col-xs-4">
+    #if($stylist)
+    <h2>$stylist Added</h2>
+    #end
+    <h2>Add Stylist</h2>
+    <form action='/stylists' method="post">
+      <div class="form-group">
+        <label for="stylist">Stylist: </label>
+        <input id="stylist" name="stylist" class="form-control" type="text">
+      </div>
+      <button type='submit' class='btn'>Add Stylist!</button>
+    </form>
+  </div>
+</div>

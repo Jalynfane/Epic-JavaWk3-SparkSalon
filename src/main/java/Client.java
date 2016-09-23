@@ -90,7 +90,7 @@ public class Client {
     return age;
   }
 
-  public String geNotes() {
+  public String getNotes() {
     return notes;
   }
 
