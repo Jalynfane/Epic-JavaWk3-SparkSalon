@@ -3,12 +3,13 @@ import org.junit.*;
 import static org.junit.Assert.*;
 
 public class ProcedureTest {
-  private Procedure procedure = new Procedure();
+  private Procedure procedure;
 
-  // @Before
-  // public void setUp() {
-  //   //DB.sql2o = new Sql2o("jdbc:postgresql://localhost:5432/to_do_test", null, null);
-  // }
+  @Before
+  public void setUp() {
+    DB.sql2o = new Sql2o("jdbc:postgresql://localhost:5432/hair_salon_test", null, null);
+    procedure = new Procedure();
+  }
 
   // @Test
   // public void Task_instantiates_true() {

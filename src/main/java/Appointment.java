@@ -1,3 +1,6 @@
+import org.sql2o.*;
+import java.util.List;
+
 public class Appointment {
 
   // public static List<Task> all() {

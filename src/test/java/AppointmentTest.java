@@ -3,12 +3,13 @@ import org.junit.*;
 import static org.junit.Assert.*;
 
 public class AppointmentTest {
-  private Appointment appointment = new Appointment();
+  private Appointment appointment;
 
-  // @Before
-  // public void setUp() {
-  //   //DB.sql2o = new Sql2o("jdbc:postgresql://localhost:5432/to_do_test", null, null);
-  // }
+  @Before
+  public void setUp() {
+    DB.sql2o = new Sql2o("jdbc:postgresql://localhost:5432/hair_salon_test", null, null);
+    appointment = new Appointment();
+  }
 
   // @Test
   // public void Task_instantiates_true() {

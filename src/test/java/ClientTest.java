@@ -3,12 +3,15 @@ import org.junit.*;
 import static org.junit.Assert.*;
 
 public class ClientTest {
-  private Client client = new Client();
+  private Client client;
 
-  // @Before
-  // public void setUp() {
-  //   //DB.sql2o = new Sql2o("jdbc:postgresql://localhost:5432/to_do_test", null, null);
-  // }
+  @Before
+  public void setUp() {
+    DB.sql2o = new Sql2o("jdbc:postgresql://localhost:5432/hair_salon_test", null, null);
+    client = new Client("Karen", "Freeman", "503-331-2346", "1710 Henderson Ave", "Eugene", "OR", 97403, "karen@sample.com", 50, "allergies");
+  }
+
+
 
   // @Test
   // public void Task_instantiates_true() {
