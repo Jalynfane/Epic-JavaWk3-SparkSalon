@@ -16,19 +16,18 @@ public class ProcedureTest {
     assertEquals(true, procedure instanceof Procedure);
   }
 
-  // @Test
-  // public void equals_returnsTrueIfDescriptionsAretheSame() {
-  //   Task firstTask = new Task("Mow the lawn");
-  //   Task secondTask = new Task("Mow the lawn");
-  //   assertTrue(firstTask.equals(secondTask));
-  // }
+  @Test
+  public void save_returnsIdFromDatabase_true() {
+    assertEquals(true, procedure.getId()>0);
+  }
 
-  // @After
-  // public void tearDown() {
-  //   Task.clear();
-  //   try(Connection con = DB.sql2o.open()) {
-  //     String sql = "DELETE FROM tasks *;";
-  //     con.createQuery(sql).executeUpdate();
-  //   }
-  // }
+
+
+  @After
+  public void tearDown() {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "DELETE FROM procedures *;";
+      con.createQuery(sql).executeUpdate();
+    }
+  }
 }

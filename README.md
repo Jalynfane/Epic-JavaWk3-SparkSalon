@@ -67,7 +67,7 @@ Final Project for Week 3, Java at Epicodus. A program to manage a hair salon wit
   * \c hair_salon
   * CREATE TABLE clients (id serial PRIMARY KEY, stylistid int, firstname varchar, lastname varchar, phonenumber varchar, address varchar, city varchar, state varchar, zip int, email varchar, age int, notes varchar);
   * CREATE TABLE stylists (id serial PRIMARY KEY, name varchar);
-  * CREATE TABLE appointments (id serial PRIMARY KEY, time timestamp, procedureid int, clientid int);
+  * CREATE TABLE appointments (id serial PRIMARY KEY, time varchar, procedureid int, clientid int);
   * CREATE TABLE procedures (id serial PRIMARY KEY, description varchar, price float);
   * CREATE DATABASE hair_salon_test WITH TEMPLATE hair_salon;
 * Type 'gradle run' inside the directory
