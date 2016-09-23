@@ -58,40 +58,150 @@ public class Client {
     return firstname;
   }
 
+  public void setFirstName(String name) {
+    this.firstname=name;
+    try(Connection cn = DB.sql2o.open()) {
+      String sql = "UPDATE clients SET firstname = :firstname WHERE id = :id";
+      cn.createQuery(sql)
+        .addParameter("firstname", name)
+        .addParameter("id", id)
+        .executeUpdate();
+    }
+  }
+
   public String getLastName() {
     return lastname;
+  }
+
+  public void setLastName(String name) {
+    this.lastname=name;
+    try(Connection cn = DB.sql2o.open()) {
+      String sql = "UPDATE clients SET lastname = :lastname WHERE id = :id";
+      cn.createQuery(sql)
+        .addParameter("lastname", name)
+        .addParameter("id", id)
+        .executeUpdate();
+    }
   }
 
   public String getPhoneNumber() {
     return phonenumber;
   }
 
+  public void setPhoneNumber(String phone) {
+    this.phonenumber=phone;
+    try(Connection cn = DB.sql2o.open()) {
+      String sql = "UPDATE clients SET phonenumber = :phonenumber WHERE id = :id";
+      cn.createQuery(sql)
+        .addParameter("phonenumber", phone)
+        .addParameter("id", id)
+        .executeUpdate();
+    }
+  }
+
   public String getAddress() {
     return address;
+  }
+
+  public void setAddress(String address) {
+    this.address=address;
+    try(Connection cn = DB.sql2o.open()) {
+      String sql = "UPDATE clients SET address = :address WHERE id = :id";
+      cn.createQuery(sql)
+        .addParameter("address", address)
+        .addParameter("id", id)
+        .executeUpdate();
+    }
   }
 
   public String getCity() {
     return city;
   }
 
+  public void setCity(String city) {
+    this.city=city;
+    try(Connection cn = DB.sql2o.open()) {
+      String sql = "UPDATE clients SET city = :city WHERE id = :id";
+      cn.createQuery(sql)
+        .addParameter("city", city)
+        .addParameter("id", id)
+        .executeUpdate();
+    }
+  }
+
   public String getState() {
     return state;
+  }
+
+  public void setState(String state) {
+    this.state=state;
+    try(Connection cn = DB.sql2o.open()) {
+      String sql = "UPDATE clients SET state = :state WHERE id = :id";
+      cn.createQuery(sql)
+        .addParameter("state", state)
+        .addParameter("id", id)
+        .executeUpdate();
+    }
   }
 
   public int getZip() {
     return zip;
   }
 
+  public void setZip(int zip) {
+    this.zip=zip;
+    try(Connection cn = DB.sql2o.open()) {
+      String sql = "UPDATE clients SET zip = :zip WHERE id = :id";
+      cn.createQuery(sql)
+        .addParameter("zip", zip)
+        .addParameter("id", id)
+        .executeUpdate();
+    }
+  }
+
   public String getEmail() {
     return email;
+  }
+
+  public void setEmail(String email) {
+    this.email=email;
+    try(Connection cn = DB.sql2o.open()) {
+      String sql = "UPDATE clients SET email = :email WHERE id = :id";
+      cn.createQuery(sql)
+        .addParameter("email", email)
+        .addParameter("id", id)
+        .executeUpdate();
+    }
   }
 
   public int getAge() {
     return age;
   }
 
+  public void setAge(int age) {
+    this.age=age;
+    try(Connection cn = DB.sql2o.open()) {
+      String sql = "UPDATE clients SET age = :age WHERE id = :id";
+      cn.createQuery(sql)
+        .addParameter("age", age)
+        .addParameter("id", id)
+        .executeUpdate();
+    }
+  }
+
   public String getNotes() {
     return notes;
+  }
+
+  public void setNotes(String notes) {
+    this.notes=notes;
+    try(Connection cn = DB.sql2o.open()) {
+      String sql = "UPDATE clients SET notes = :notes WHERE id = :id";
+      cn.createQuery(sql)
+        .addParameter("notes", notes)
+        .addParameter("id", id)
+        .executeUpdate();
+    }
   }
 
   public static Client find(int id) {

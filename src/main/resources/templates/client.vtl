@@ -3,7 +3,7 @@
     <h2>Our Clients</h2>
     #foreach($client in $clients)
       <div>
-        <h3><a href="/client/$client.getId()">$client.getLastName(), $client.getFirstName()</a></h3>
+        <h3><a href="/clients/$client.getId()">$client.getLastName(), $client.getFirstName()</a></h3>
       </div>
     #end
   </div>

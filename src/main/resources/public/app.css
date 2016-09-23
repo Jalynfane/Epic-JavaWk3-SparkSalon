@@ -1,0 +1,12 @@
+body {
+  color: #454107;
+  background: #E7F2E6;
+}
+
+img.header {
+  width: 100%;
+}
+
+a, a:hover, a:visited, a:active {
+  color: #5B9E44;
+}
