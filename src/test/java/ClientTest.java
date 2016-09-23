@@ -23,7 +23,6 @@ public class ClientTest {
     assertEquals(true, client.getId()>0);
   }
 
-
   @Test
   public void find_returnCorrectClient_true() {
     assertTrue(Client.find(client.getId()).getEmail().equals(client.getEmail()));

@@ -1,6 +1,11 @@
 <div class="row">
   <div class="col-xs-8">
-
+    <h2>Our Clients</h2>
+    #foreach($client in $clients)
+      <div>
+        <h3><a href="/client/$client.getId()">$client.getLastName(), $client.getFirstName()</a></h3>
+      </div>
+    #end
   </div>
   <div class="col-xs-4">
     #if($first)

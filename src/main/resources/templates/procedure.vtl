@@ -1,11 +1,16 @@
 <div class="row">
   <div class="col-xs-8">
-
+    <h2>Our Services</h2>
+    #foreach($procedure in $procedures)
+      <div>
+        <h3><a href="/procedures/$procedure.getId()">$procedure.getDescription() - $ $procedure.getPrice()</a></h3>
+      </div>
+    #end
   </div>
     <div class="col-xs-4">
     #if($procedure)
     <h2>Procedure Added</h2>
-    <p>$procedure: $price</p>
+    <p>$procedure: $ $price</p>
     #end
     <h2>Add Procedure</h2>
     <form action='/procedures' method="post">

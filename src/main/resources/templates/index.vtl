@@ -1,10 +1,16 @@
 <div class="row">
   <div class="col-xs-8">
-
+    <h2>Our Appointments</h2>
+    #foreach($appointment in $appointments)
+      <div>
+        <h3><a href="/$appointment.getId()">$appointment.getTime()</a></h3>
+      </div>
+    #end
   </div>
   <div class="col-xs-4">
-    #if($client)
-    <h2>$client Added</h2>
+    #if($appointment)
+    <h2>Appointment Added</h2>
+    <p>$day</p>
     #end
     <h2>Add Appointment</h2>
     <form action='/' method="post">
