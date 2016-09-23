@@ -144,6 +144,13 @@ public class ClientTest {
     assertTrue(Client.all().size()>1);
   }
 
+  @Test
+  public void delete_deletesClient_true() {
+    int clientId = client2.getId();
+    Client.delete(clientId);
+    assertEquals(null, Client.find(clientId));
+  }
+
   @After
   public void tearDown() {
     try(Connection con = DB.sql2o.open()) {

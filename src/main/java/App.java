@@ -62,7 +62,9 @@ public class App {
 
     get("/delete/clients/:id", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
-      model.put("clients", Client.all());
+      int id = Integer.parseInt(request.params(":id"));
+      Client.delete(id);
+      response.redirect("/clients/" + id);
       model.put("template", "templates/client.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
