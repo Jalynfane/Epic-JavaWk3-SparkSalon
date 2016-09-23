@@ -2,8 +2,8 @@ import org.sql2o.*;
 import org.junit.*;
 import static org.junit.Assert.*;
 
-public class TaskTest {
-  private Task task = new Task();
+public class StylistTest {
+  private Stylist stylist = new Stylist();
 
   // @Before
   // public void setUp() {
