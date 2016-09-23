@@ -4,11 +4,13 @@ import static org.junit.Assert.*;
 
 public class ProcedureTest {
   private Procedure procedure;
+  private Procedure procedure2;
 
   @Before
   public void setUp() {
     DB.sql2o = new Sql2o("jdbc:postgresql://localhost:5432/hair_salon_test", null, null);
     procedure = new Procedure("hair cut & color", 25.00f);
+    procedure2 = new Procedure("women's haircut", 50.00f);
   }
 
   @Test
@@ -24,6 +26,11 @@ public class ProcedureTest {
   @Test
   public void find_returnCorrectProcedure_true() {
     assertTrue(Procedure.find(procedure.getId()).getDescription().equals(procedure.getDescription()));
+  }
+
+  @Test
+  public void Procedure_returnsAllInstances_true() {
+    assertTrue(Procedure.all().size()>1);
   }
 
   @After

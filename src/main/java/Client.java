@@ -104,4 +104,11 @@ public class Client {
     }
   }
 
+  public static List<Client> all() {
+    String sql = "SELECT * FROM clients ORDER BY lastname, firstname, age";
+    try(Connection cn = DB.sql2o.open()) {
+      return cn.createQuery(sql).executeAndFetch(Client.class);
+    }
+  }
+
 }

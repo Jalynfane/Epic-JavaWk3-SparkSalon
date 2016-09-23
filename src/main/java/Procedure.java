@@ -41,4 +41,11 @@ public class Procedure {
       return procedure;
     }
   }
+
+  public static List<Procedure> all() {
+    String sql = "SELECT * FROM procedures ORDER BY price";
+    try(Connection cn = DB.sql2o.open()) {
+      return cn.createQuery(sql).executeAndFetch(Procedure.class);
+    }
+  }
 }

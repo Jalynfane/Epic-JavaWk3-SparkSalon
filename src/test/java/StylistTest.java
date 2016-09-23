@@ -4,11 +4,13 @@ import static org.junit.Assert.*;
 
 public class StylistTest {
   private Stylist stylist;
+  private Stylist stylist2;
 
   @Before
   public void setUp() {
     DB.sql2o = new Sql2o("jdbc:postgresql://localhost:5432/hair_salon_test", null, null);
     stylist = new Stylist("Cheryl");
+    stylist2 = new Stylist("Cheryl");
   }
 
   @Test
@@ -26,6 +28,10 @@ public class StylistTest {
     assertTrue(Stylist.find(stylist.getId()).getName().equals(stylist.getName()));
   }
 
+  @Test
+  public void Stylist_returnsAllInstances_true() {
+    assertTrue(Stylist.all().size()>1);
+  }
 
   @After
   public void tearDown() {

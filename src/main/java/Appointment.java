@@ -36,8 +36,20 @@ public class Appointment {
     return clientid;
   }
 
+  public Client getClient() {
+    return Client.find(clientid);
+  }
+
+  public Stylist getStylist() {
+    return Stylist.find(Client.find(clientid).getStylistId());
+  }
+
   public int getProcedureId() {
     return procedureid;
+  }
+
+  public Procedure getProcedure() {
+    return Procedure.find(procedureid);
   }
 
   public static Appointment find(int id) {
@@ -47,6 +59,13 @@ public class Appointment {
         .addParameter("id", id)
         .executeAndFetchFirst(Appointment.class);
       return appointment;
+    }
+  }
+
+  public static List<Appointment> all() {
+    String sql = "SELECT * FROM appointments ORDER BY time";
+    try(Connection cn = DB.sql2o.open()) {
+      return cn.createQuery(sql).executeAndFetch(Appointment.class);
     }
   }
 
