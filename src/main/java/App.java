@@ -44,6 +44,17 @@ public class App {
 
     post("/clients/:id", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
+      int id = Integer.parseInt(request.params(":id"));
+      Client.find(id).setFirstName(request.queryParams("first"));
+      Client.find(id).setLastName(request.queryParams("last"));
+      Client.find(id).setPhoneNumber(request.queryParams("phone"));
+      Client.find(id).setAddress(request.queryParams("address"));
+      Client.find(id).setCity(request.queryParams("city"));
+      Client.find(id).setState(request.queryParams("state"));
+      Client.find(id).setZip(Integer.parseInt(request.queryParams("zip")));
+      Client.find(id).setEmail(request.queryParams("email"));
+      Client.find(id).setAge(Integer.parseInt(request.queryParams("age")));
+      Client.find(id).setNotes(request.queryParams("notes"));
       model.put("clients", Client.all());
       model.put("template", "templates/client.vtl");
       return new ModelAndView(model, layout);
