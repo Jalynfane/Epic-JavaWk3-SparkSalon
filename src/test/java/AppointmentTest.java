@@ -21,6 +21,10 @@ public class AppointmentTest {
     assertEquals(true, appointment.getId()>0);
   }
 
+  @Test
+  public void find_returnCorrectAppointment_true() {
+    assertTrue(Appointment.find(appointment.getId()).getTime().equals(appointment.getTime()));
+  }
 
 
   @After

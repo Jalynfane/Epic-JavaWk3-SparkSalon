@@ -71,7 +71,9 @@ Final Project for Week 3, Java at Epicodus. A program to manage a hair salon wit
   * CREATE TABLE procedures (id serial PRIMARY KEY, description varchar, price float);
   * CREATE DATABASE hair_salon_test WITH TEMPLATE hair_salon;
 * OR ... restore database from backup by running
+  * CREATE DATABASE hair_salon;
   * psql hair_salon < db_backup.sql
+  * CREATE DATABASE hair_salon_test;
   * psql hair_salon_test < db_backup.sql
 * Type 'gradle run' inside the directory
 * Navigate to 'http://localhost:4567'

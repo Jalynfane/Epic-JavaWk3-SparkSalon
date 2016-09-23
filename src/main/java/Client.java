@@ -3,6 +3,7 @@ import java.util.List;
 
 public class Client {
   private int id=0;
+  private int stylistid=0;
   private String firstname;
   private String lastname;
   private String phonenumber;
@@ -49,5 +50,58 @@ public class Client {
     return id;
   }
 
+  public int getStylistId() {
+    return stylistid;
+  }
+
+  public String getFirstName() {
+    return firstname;
+  }
+
+  public String getLastName() {
+    return lastname;
+  }
+
+  public String getPhoneNumber() {
+    return phonenumber;
+  }
+
+  public String getAddress() {
+    return address;
+  }
+
+  public String getCity() {
+    return city;
+  }
+
+  public String getState() {
+    return state;
+  }
+
+  public int getZip() {
+    return zip;
+  }
+
+  public String getEmail() {
+    return email;
+  }
+
+  public int getAge() {
+    return age;
+  }
+
+  public String geNotes() {
+    return notes;
+  }
+
+  public static Client find(int id) {
+    try(Connection cn = DB.sql2o.open()) {
+      String sql = "SELECT * FROM clients WHERE id=:id";
+      Client client = cn.createQuery(sql)
+        .addParameter("id", id)
+        .executeAndFetchFirst(Client.class);
+      return client;
+    }
+  }
 
 }

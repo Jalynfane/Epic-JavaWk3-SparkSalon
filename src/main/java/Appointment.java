@@ -24,11 +24,30 @@ public class Appointment {
     }
   }
 
-
   public int getId() {
     return id;
   }
 
+  public String getTime() {
+    return time;
+  }
 
+  public int getClientId() {
+    return clientid;
+  }
+
+  public int getProcedureId() {
+    return procedureid;
+  }
+
+  public static Appointment find(int id) {
+    try(Connection cn = DB.sql2o.open()) {
+      String sql = "SELECT * FROM appointments WHERE id=:id";
+      Appointment appointment = cn.createQuery(sql)
+        .addParameter("id", id)
+        .executeAndFetchFirst(Appointment.class);
+      return appointment;
+    }
+  }
 
 }

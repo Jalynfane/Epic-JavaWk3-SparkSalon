@@ -22,6 +22,10 @@ public class ClientTest {
   }
 
 
+  @Test
+  public void find_returnCorrectClient_true() {
+    assertTrue(Client.find(client.getId()).getEmail().equals(client.getEmail()));
+  }
 
   @After
   public void tearDown() {

@@ -21,7 +21,10 @@ public class ProcedureTest {
     assertEquals(true, procedure.getId()>0);
   }
 
-
+  @Test
+  public void find_returnCorrectProcedure_true() {
+    assertTrue(Procedure.find(procedure.getId()).getDescription().equals(procedure.getDescription()));
+  }
 
   @After
   public void tearDown() {

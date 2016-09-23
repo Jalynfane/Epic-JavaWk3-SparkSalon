@@ -24,5 +24,21 @@ public class Procedure {
     return id;
   }
 
+  public String getDescription() {
+    return description;
+  }
 
+  public float getPrice() {
+    return price;
+  }
+
+  public static Procedure find(int id) {
+    try(Connection cn = DB.sql2o.open()) {
+      String sql = "SELECT * FROM procedures WHERE id=:id";
+      Procedure procedure = cn.createQuery(sql)
+        .addParameter("id", id)
+        .executeAndFetchFirst(Procedure.class);
+      return procedure;
+    }
+  }
 }

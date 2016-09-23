@@ -21,6 +21,10 @@ public class StylistTest {
     assertEquals(true, stylist.getId()>0);
   }
 
+  @Test
+  public void find_returnCorrectStylist_true() {
+    assertTrue(Stylist.find(stylist.getId()).getName().equals(stylist.getName()));
+  }
 
 
   @After

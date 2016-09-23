@@ -14,12 +14,24 @@ public class Stylist {
         .executeUpdate()
         .getKey();
     }
-
   }
 
   public int getId() {
     return id;
   }
 
+  public String getName() {
+    return name;
+  }
+
+  public static Stylist find(int id) {
+    try(Connection cn = DB.sql2o.open()) {
+      String sql = "SELECT * FROM stylists WHERE id=:id";
+      Stylist stylist = cn.createQuery(sql)
+        .addParameter("id", id)
+        .executeAndFetchFirst(Stylist.class);
+      return stylist;
+    }
+  }
 
 }
