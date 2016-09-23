@@ -2,6 +2,14 @@ import org.sql2o.*;
 import java.util.List;
 
 public class Procedure {
+  private int id;
+  private String description;
+  private float price;
+
+  public Procedure(String description, float price) {
+    this.description=description;
+    this.price=price;
+  }
 
   // public static List<Task> all() {
   //   String sql = "SELECT id, description FROM tasks";

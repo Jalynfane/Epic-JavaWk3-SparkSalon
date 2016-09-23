@@ -11,10 +11,10 @@ public class StylistTest {
     stylist = new Stylist("Cheryl");
   }
 
-  // @Test
-  // public void Task_instantiates_true() {
-  //   assertEquals(true, task instanceof Task);
-  // }
+  @Test
+  public void Stylist_instantiates_true() {
+    assertEquals(true, stylist instanceof Stylist);
+  }
 
   // @Test
   // public void equals_returnsTrueIfDescriptionsAretheSame() {

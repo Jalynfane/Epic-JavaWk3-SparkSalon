@@ -11,12 +11,10 @@ public class ClientTest {
     client = new Client("Karen", "Freeman", "503-331-2346", "1710 Henderson Ave", "Eugene", "OR", 97403, "karen@sample.com", 50, "allergies");
   }
 
-
-
-  // @Test
-  // public void Task_instantiates_true() {
-  //   assertEquals(true, task instanceof Task);
-  // }
+  @Test
+  public void Client_instantiates_true() {
+    assertEquals(true, client instanceof Client);
+  }
 
   // @Test
   // public void equals_returnsTrueIfDescriptionsAretheSame() {

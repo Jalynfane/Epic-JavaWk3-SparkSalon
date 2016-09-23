@@ -8,13 +8,13 @@ public class ProcedureTest {
   @Before
   public void setUp() {
     DB.sql2o = new Sql2o("jdbc:postgresql://localhost:5432/hair_salon_test", null, null);
-    procedure = new Procedure();
+    procedure = new Procedure("hair cut & color", 25.00f);
   }
 
-  // @Test
-  // public void Task_instantiates_true() {
-  //   assertEquals(true, task instanceof Task);
-  // }
+  @Test
+  public void Procedure_instantiates_true() {
+    assertEquals(true, procedure instanceof Procedure);
+  }
 
   // @Test
   // public void equals_returnsTrueIfDescriptionsAretheSame() {
