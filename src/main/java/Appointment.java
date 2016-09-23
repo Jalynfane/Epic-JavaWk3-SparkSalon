@@ -69,4 +69,13 @@ public class Appointment {
     }
   }
 
+  public static void delete(int id) {
+    try(Connection cn = DB.sql2o.open()) {
+      String sql = "DELETE FROM appointments WHERE id = :id;";
+      cn.createQuery(sql)
+      .addParameter("id", id)
+      .executeUpdate();
+    }
+  }
+
 }

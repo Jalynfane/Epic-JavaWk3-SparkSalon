@@ -33,6 +33,13 @@ public class AppointmentTest {
     assertTrue(Appointment.all().size()>1);
   }
 
+  @Test
+  public void delete_deletesAppointment_true() {
+    int appointmentId = appointment2.getId();
+    Appointment.delete(appointmentId);
+    assertEquals(null, Appointment.find(appointmentId));
+  }
+
   @After
   public void tearDown() {
     try(Connection con = DB.sql2o.open()) {
