@@ -8,13 +8,13 @@ public class AppointmentTest {
   @Before
   public void setUp() {
     DB.sql2o = new Sql2o("jdbc:postgresql://localhost:5432/hair_salon_test", null, null);
-    appointment = new Appointment();
+    appointment = new Appointment("2016-10-19 10:00", 1, 1);
   }
 
-  // @Test
-  // public void Task_instantiates_true() {
-  //   assertEquals(true, task instanceof Task);
-  // }
+  @Test
+  public void Appointment_instantiates_true() {
+    assertEquals(true, appointment instanceof Appointment);
+  }
 
   // @Test
   // public void equals_returnsTrueIfDescriptionsAretheSame() {

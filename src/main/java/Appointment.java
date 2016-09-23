@@ -2,6 +2,17 @@ import org.sql2o.*;
 import java.util.List;
 
 public class Appointment {
+  private int id;
+  private String time;
+  private int clientid;
+  private int procedureid;
+
+  public Appointment (String time, int clientid, int procedureit) {
+    this.time = time;
+    this.clientid = clientid;
+    this.procedureid = procedureid;
+    
+  }
 
   // public static List<Task> all() {
   //   String sql = "SELECT id, description FROM tasks";
