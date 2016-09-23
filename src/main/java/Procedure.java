@@ -70,4 +70,14 @@ public class Procedure {
       return cn.createQuery(sql).executeAndFetch(Procedure.class);
     }
   }
+
+  public static void delete(int id) {
+    try(Connection cn = DB.sql2o.open()) {
+      String sql = "DELETE FROM procedures WHERE id = :id;";
+      cn.createQuery(sql)
+      .addParameter("id", id)
+      .executeUpdate();
+    }
+  }
+
 }

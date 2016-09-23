@@ -44,6 +44,14 @@ public class StylistTest {
     assertTrue(Stylist.all().size()>1);
   }
 
+
+  @Test
+  public void delete_deletesStylist_true() {
+    int stylistId = stylist2.getId();
+    Stylist.delete(stylistId);
+    assertEquals(null, Stylist.find(stylistId));
+  }
+
   @After
   public void tearDown() {
     try(Connection con = DB.sql2o.open()) {

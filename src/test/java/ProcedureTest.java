@@ -55,6 +55,14 @@ public class ProcedureTest {
     assertTrue(Procedure.all().size()>1);
   }
 
+
+  @Test
+  public void delete_deletesProcedure_true() {
+    int procedureId = procedure2.getId();
+    Procedure.delete(procedureId);
+    assertEquals(null, Procedure.find(procedureId));
+  }
+
   @After
   public void tearDown() {
     try(Connection con = DB.sql2o.open()) {
