@@ -1,9 +1,21 @@
-<h1>My Form</h1>
-<form action='/result'>
-  <div class="form-group">
-    <label for="item1">Item 1: </label>
-    <input id="item1" name="item1" class="form-control" type="text">
-  </div>
 
-  <button type='submit' class='btn'>Get Results!</button>
+#if($client)
+<h2>$client</h2>
+#end
+
+<h2>Make Appointment</h2>
+<form action='/' method="post">
+  <div class="form-group">
+    <label for="client">Client: </label>
+    <input id="client" name="client" class="form-control" type="text">
+  </div>
+  <div class="form-group">
+    <label for="procedure">Procedure: </label>
+    <input id="procedure" name="procedure" class="form-control" type="text">
+  </div>
+  <div class="form-group">
+    <label for="item1">Date/Time: </label>
+    <input id="time" name="time" class="form-control" type="text">
+  </div>
+  <button type='submit' class='btn'>Book it!</button>
 </form>

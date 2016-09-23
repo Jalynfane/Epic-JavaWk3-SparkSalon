@@ -1,0 +1,13 @@
+
+#if($procedure)
+<h2>$procedure</h2>
+#end
+
+<h2>Add Procedure</h2>
+<form action='/procedures' method="post">
+  <div class="form-group">
+    <label for="procedure">Procedure: </label>
+    <input id="procedure" name="procedure" class="form-control" type="text">
+  </div>
+  <button type='submit' class='btn'>Add Procedure</button>
+</form>
