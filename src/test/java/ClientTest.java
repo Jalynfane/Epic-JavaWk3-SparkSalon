@@ -9,13 +9,24 @@ public class ClientTest {
   @Before
   public void setUp() {
     DB.sql2o = new Sql2o("jdbc:postgresql://localhost:5432/hair_salon_test", null, null);
-    client = new Client("Karen", "Freeman", "503-331-2346", "1710 Henderson Ave", "Eugene", "OR", 97403, "karen@sample.com", 50, "allergies");
-    client2 = new Client("Karen", "Smith", "503-883-9533", "5392 Knightwood Drive", "Klamath Falls", "OR", 97603, "ksmith@sample.com", 18, "new client");
+    client = new Client("Karen", "Freeman", "503-331-2346", "1710 Henderson Ave", "Eugene", "OR", 97403, "karen@sample.com", 50, "allergies", 1);
+    client2 = new Client("Karen", "Smith", "503-883-9533", "5392 Knightwood Drive", "Klamath Falls", "OR", 97603, "ksmith@sample.com", 18, "new client", 1);
   }
 
   @Test
   public void Client_instantiates_true() {
     assertEquals(true, client instanceof Client);
+  }
+
+  @Test
+  public void getStylistId_returnsCorrectId_String() {
+    assertEquals(1, client.getStylistId());
+  }
+
+  @Test
+  public void setStylistId_updatesStylistId_int() {
+    client2.setStylistId(2);
+    assertEquals(2, Client.find(client2.getId()).getStylistId());
   }
 
   @Test
@@ -140,7 +151,12 @@ public class ClientTest {
   }
 
   @Test
-  public void Client_returnsAllInstances_true() {
+  public void allByStylist_returnsAllInstances_true() {
+    assertTrue(Client.allByStylist(1).size()>1);
+  }
+
+  @Test
+  public void all_returnsAllInstances_true() {
     assertTrue(Client.all().size()>1);
   }
 

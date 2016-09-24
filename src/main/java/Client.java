@@ -15,7 +15,7 @@ public class Client {
   private int age;
   private String notes;
 
-  public Client(String firstname, String lastname, String phone, String street, String city, String state, int zip, String email, int age, String notes) {
+  public Client(String firstname, String lastname, String phone, String street, String city, String state, int zip, String email, int age, String notes, int stylistid) {
     this.firstname = firstname;
     this.lastname = lastname;
     this.phonenumber = phone;
@@ -26,9 +26,10 @@ public class Client {
     this.email = email;
     this.age = age;
     this.notes = notes;
+    this.stylistid = stylistid;
 
     try(Connection cn = DB.sql2o.open()) {
-      String sql = "INSERT INTO clients (firstname, lastname, phonenumber, address, city, state, zip, email, age, notes) VALUES (:firstname, :lastname, :phonenumber, :address, :city, :state, :zip, :email, :age, :notes)";
+      String sql = "INSERT INTO clients (firstname, lastname, phonenumber, address, city, state, zip, email, age, notes, stylistid) VALUES (:firstname, :lastname, :phonenumber, :address, :city, :state, :zip, :email, :age, :notes, :stylistid)";
       this.id = (int) cn.createQuery(sql, true)
         .addParameter("lastname", this.lastname)
         .addParameter("firstname", this.firstname)
@@ -40,6 +41,7 @@ public class Client {
         .addParameter("email", this.email)
         .addParameter("age", this.age)
         .addParameter("notes", this.notes)
+        .addParameter("stylistid", this.stylistid)
         .executeUpdate()
         .getKey();
     }
@@ -52,6 +54,17 @@ public class Client {
 
   public int getStylistId() {
     return stylistid;
+  }
+
+  public void setStylistId(int stylistid) {
+    this.stylistid=stylistid;
+    try(Connection cn = DB.sql2o.open()) {
+      String sql = "UPDATE clients SET stylistid = :stylistid WHERE id = :id";
+      cn.createQuery(sql)
+        .addParameter("stylistid", stylistid)
+        .addParameter("id", id)
+        .executeUpdate();
+    }
   }
 
   public String getFirstName() {
@@ -211,6 +224,15 @@ public class Client {
         .addParameter("id", id)
         .executeAndFetchFirst(Client.class);
       return client;
+    }
+  }
+
+  public static List<Client> allByStylist(int id) {
+    String sql = "SELECT * FROM clients WHERE stylistid = :id ORDER BY lastname, firstname, age";
+    try(Connection cn = DB.sql2o.open()) {
+      return cn.createQuery(sql)
+      .addParameter("id", id)
+      .executeAndFetch(Client.class);
     }
   }
 
