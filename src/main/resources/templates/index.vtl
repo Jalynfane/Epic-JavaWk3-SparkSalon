@@ -1,55 +1,7 @@
 <div class="row">
   <div class="col-xs-8">
-    <h2>Our Appointments</h2>
-    #foreach($appointment in $appointments)
-      <div>
-        <h3><a href="/$appointment.getId()">$appointment.getTime()</a></h3>
-      </div>
-    #end
+    <h2>Welcome to Spark Salon</h2>
   </div>
-  <div class="col-xs-4">
-    #if($appointment)
-    <h2>Appointment Added</h2>
-    <p>$day</p>
-    #end
-    <h2>Add Appointment</h2>
-    <form action='/' method="post">
-      <div class="form-group">
-        <label for="client">Client: </label>
-        <input id="client" name="client" class="form-control" type="text">
-      </div>
-      <div class="form-group">
-        <label for="procedure">Procedure: </label>
-        <input id="procedure" name="procedure" class="form-control" type="text">
-      </div>
-      <div class="form-group">
-        <label for="day">Date: </label>
-        <input id="day" name="day" type="date">
-      </div>
-      <div class="form-group">
-        <label for="item1">Time: </label>
-        <select id="hour" name="hour">
-          <option>8</option>
-          <option>9</option>
-          <option>10</option>
-          <option>11</option>
-          <option>12</option>
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-          <option>6</option>
-          <option>7</option>
-        </select>
-        <select id="minutes" name="minutes">
-          <option>00</option>
-          <option>15</option>
-          <option>30</option>
-          <option>45</option>
-        </select>
-      </div>
-      <button type='submit' class='btn'>Book it!</button>
-    </form>
+
   </div>
 </div>
