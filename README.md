@@ -6,6 +6,8 @@ by [Karen Freeman-Smith](https://github.com/karenfreemansmith)
 ## Description
 Final Project for Week 3, Java at Epicodus. A program to manage a hair salon with stylists and clients using Java, PostgreSQL, and Spark with JUnit tests and RESTful routing.
 
+![screenshot of project running](screenshot.jpg)
+
 
 ### Specifications
 #### User Stories:
