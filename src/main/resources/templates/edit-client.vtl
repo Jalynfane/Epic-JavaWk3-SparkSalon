@@ -13,55 +13,55 @@
     </div>
       <div class="form-group col-xs-6">
         <label for="first">First name: </label>
-        <input id="first" name="first" class="form-control" type="text" value="$client.getFirstName()">
+        <input id="first" name="first" class="form-control" type="text" #if($client.getFirstName()) value="$client.getFirstName()" #end>
       </div>
       <div class="form-group col-xs-6">
         <label for="last">Last Name: </label>
-        <input id="last" name="last" class="form-control" type="text" value="$client.getLastName()">
+        <input id="last" name="last" class="form-control" type="text" #if($client.getLastName()) value="$client.getLastName()" #end>
       </div>
       <div class="form-group col-xs-6">
         <label for="phone">Phone Number: </label>
-        <input id="phone" name="phone" class="form-control" type="text" value="$client.getPhoneNumber()">
+        <input id="phone" name="phone" class="form-control" type="text" #if($client.getPhoneNumber()) value="$client.getPhoneNumber()" #end>
       </div>
       <div class="form-group col-xs-6">
         <label for="address">Street Address: </label>
-        <input id="address" name="address" class="form-control" type="text" value="$client.getAddress()">
+        <input id="address" name="address" class="form-control" type="text" #if($client.getAddress()) value="$client.getAddress()" #end>
       </div>
       <div class="form-group col-xs-6">
         <label for="city">City: </label>
-        <input id="city" name="city" class="form-control" type="text" value="$client.getCity()">
+        <input id="city" name="city" class="form-control" type="text" #if($client.getCity()) value="$client.getCity()" #end>
       </div>
       <div class="form-group col-xs-3">
         <label for="state">State: </label>
-        <input id="state" name="state" class="form-control" type="text" value="$client.getState()">
+        <input id="state" name="state" class="form-control" type="text" #if($client.getState()) value="$client.getState()" #end>
       </div>
       <div class="form-group col-xs-3">
         <label for="zip">Zip: </label>
-        <input id="zip" name="zip" class="form-control" type="text" value="$client.getZip()">
+        <input id="zip" name="zip" class="form-control" type="text" #if($client.getZip()) value="$client.getZip()" #end>
       </div>
       <div class="form-group col-xs-9">
         <label for="email">Email: </label>
-        <input id="email" name="email" class="form-control" type="text" value="$client.getEmail()">
+        <input id="email" name="email" class="form-control" type="text" #if($client.getEmail()) value="$client.getEmail()" #end>
       </div>
       <div class="form-group col-xs-3">
         <label for="age">Age: </label>
-        <input id="age" name="age" class="form-control" type="text" value="$client.getAge()">
+        <input id="age" name="age" class="form-control" type="text" #if($client.getAge()) value="$client.getAge()" #end>
       </div>
       <div class="form-group col-xs-12">
         <label for="notes">Notes: </label>
-        <input id="notes" name="notes" class="form-control" type="text" value="$client.getNotes()">
+        <input id="notes" name="notes" class="form-control" type="text" #if($client.getNotes()) value="$client.getNotes()" #end>
       </div>
     </div>
       <button type='submit' class='btn'>Update Client!</button>
     </form>
   </div>
   <div class="col-sm-4">
-    <h2>$client.getFirstName() $client.getLastName() ($client.getAge())</h2>
-    <h3>$client.getPhoneNumber()</h3>
-    <h3>$client.getAddress(), $client.getCity()</h3>
-    <h3>$client.getState() $client.getZip()</h3>
-    <h3>$client.getEmail()</h3>
-    <h3>$client.getNotes()</h3>
+    <h2>#if($client.getFirstName()) $client.getFirstName() #end #if($client.getLastName()) $client.getLastName() #end #if($client.getAge()) ($client.getAge()) #end</h2>
+    <h3>#if($client.getPhoneNumber()) $client.getPhoneNumber() #end</h3>
+    <h3>#if($client.getAddress()) $client.getAddress() #end, #if($client.getCity())  $client.getCity() #end</h3>
+    <h3>#if($client.getState()) $client.getState() #end #if($client.getZip()) $client.getZip() #end</h3>
+    <h3>#if($client.getEmail()) $client.getEmail() #end</h3>
+    <h3>#if($client.getNotes()) $client.getNotes() #end</h3>
     <p><a href="/delete/clients/$client.getId()">delete client</a></p>
   </div>
 </div>
