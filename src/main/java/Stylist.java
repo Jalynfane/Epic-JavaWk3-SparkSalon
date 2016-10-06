@@ -58,6 +58,10 @@ public class Stylist {
       cn.createQuery(sql)
       .addParameter("id", id)
       .executeUpdate();
+      sql = "UPDATE clients SET stylistid = 0 WHERE stylistid = :id;";
+      cn.createQuery(sql)
+      .addParameter("id", id)
+      .executeUpdate();
     }
   }
 
